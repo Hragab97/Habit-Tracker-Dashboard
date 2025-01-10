@@ -1,4 +1,4 @@
-image: node:20-alpine  # Using Node.js image instead of alpine
+image: node:20-alpine
 
 stages:
   - build
@@ -12,26 +12,35 @@ build-job:
     - npm run build
   artifacts:
     paths:
-      - dist/  # Angular builds to dist directory by default
+      - dist/
 
 test-job1:
   stage: test
   script:
-    - npm install
-    - npm run test --watch=false  # Run tests in CI mode
+    - npm install --legacy-peer-deps  # Added --legacy-peer-deps flag
+    - npm run test --watch=false
 
 test-job2:
   stage: test
   script:
     - echo "This job tests something, but takes more time than test-job1."
+    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
+    - echo "which simulates a test that runs 20 seconds longer than test-job1"
     - sleep 20
+
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+  environment: production
 
 pages:
   stage: deploy
   script:
-    - npm install
+    - npm install --legacy-peer-deps
     - npm run build
-    - cp -r dist/*/browser/* public/  # Copy Angular build output to public directory
+    - mkdir -p public
+    - cp -r dist/*/browser/* public/
   artifacts:
     paths:
       - public
