@@ -39,10 +39,8 @@ pages:
   script:
     - npm install --legacy-peer-deps
     - npm run build
-    - rm -rf public  
-    - mkdir -p public
-    - ls -la dist  # Debug: see what's in dist
-    - cp -r dist/habit-tracker-dashboard/browser/* public/
+    - rm -rf public 
+    - cp -r dist/habit-tracker-dashboard/browser public
   artifacts:
     paths:
       - public
