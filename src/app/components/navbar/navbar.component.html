@@ -1,1 +1,30 @@
-<p>navbar works!</p>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+      @if (showFiller) {
+      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button mat-raised-button>
+        Dashboard
+      </button>
+      <button mat-raised-button>
+        Habits
+      </button>
+      <button mat-raised-button>
+        Reports
+      </button>
+      <button mat-raised-button>
+        Settings
+      </button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

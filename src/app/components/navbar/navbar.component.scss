@@ -1,0 +1,23 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+.mat-mdc-button{
+  font-size: 20px;
+}
+
+.mat-drawer-inner-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 20px
+  }
