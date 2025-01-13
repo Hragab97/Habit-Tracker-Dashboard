@@ -35,10 +35,9 @@ deploy-prod:
   environment: production
 
 pages:
-  stage: deploy
-  dependencies:
-    - build-job
   script:
+    - npm install
+    - npm run build --prod
     - mkdir -p public
     - cp -r dist/habit-tracker-dashboard/browser/* public
   artifacts:
@@ -46,3 +45,5 @@ pages:
       - public
   only:
     - main
+  after_script:
+    - echo "/*    /index.html   200" > public/_redirects
