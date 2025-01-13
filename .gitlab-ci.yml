@@ -17,15 +17,15 @@ build-job:
 test-job1:
   stage: test
   script:
-    - npm install --legacy-peer-deps  # Added --legacy-peer-deps flag
+    - npm install --legacy-peer-deps
     - npm run test --watch=false
 
 test-job2:
   stage: test
+  needs:
+    - test-job1
   script:
-    - echo "This job tests something, but takes more time than test-job1."
-    - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
-    - echo "which simulates a test that runs 20 seconds longer than test-job1"
+    - echo "Simulating a longer-running test job."
     - sleep 20
 
 deploy-prod:
@@ -36,11 +36,11 @@ deploy-prod:
 
 pages:
   stage: deploy
+  dependencies:
+    - build-job
   script:
-    - npm install --legacy-peer-deps
-    - npm run build
     - mkdir -p public
-    - cp -r dist/*/browser/* public/
+    - cp -r dist/habit-tracker-dashboard/browser/* public
   artifacts:
     paths:
       - public
