@@ -36,11 +36,11 @@ deploy-prod:
 
 pages:
   stage: deploy
-  dependencies:
-    - build-job
   script:
-    - rm -rf public
-    - cp -r dist/habit-tracker-dashboard/browser public
+    - npm install --legacy-peer-deps
+    - npm run build
+    - mkdir -p public
+    - cp -r dist/*/browser/* public/
   artifacts:
     paths:
       - public
