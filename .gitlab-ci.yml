@@ -33,3 +33,11 @@ pages:
   script:
     - npm install --legacy-peer-deps
     - npm run build
+    - rm -rf public
+    - mkdir -p public
+    - cp -r dist/habit-tracker-dashboard/browser/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
