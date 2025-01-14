@@ -33,13 +33,3 @@ pages:
   script:
     - npm install --legacy-peer-deps
     - npm run build
-    - rm -rf .public
-    - cp -r dist/habit-tracker-dashboard/browser public
-  artifacts:
-    paths:
-      - public
-  only:
-    - main
-
-  after_script:
-    - echo "/*    /index.html   200" > public/_redirects
