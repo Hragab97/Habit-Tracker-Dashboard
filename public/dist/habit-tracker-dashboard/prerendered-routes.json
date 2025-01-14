@@ -1,9 +1,0 @@
-{
-  "routes": {
-    "/": {},
-    "/dashboard": {},
-    "/habits": {},
-    "/reports": {},
-    "/settings": {}
-  }
-}
