@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'habits', component: HabitsComponent, title: 'Habits' },
   { path: 'reports',component: ReportsComponent, title: 'Reports' },
   { path: 'settings', component: SettingsComponent, title: 'Settings' },
-  { path: '', redirectTo: '/dashboard' }
+  { path: '', redirectTo: '/dashboard', pathMatch:'full' }
   ];
