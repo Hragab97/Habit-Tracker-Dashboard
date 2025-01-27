@@ -30,6 +30,8 @@ test-job2:
 
 pages:
   stage: deploy
+  dependencies:
+    - build-job
   script:
     - npm install --legacy-peer-deps
     - npm run build
