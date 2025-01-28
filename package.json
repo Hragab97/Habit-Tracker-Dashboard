@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && ng run habit-tracker-dashboard:server:production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:habit-tracker-dashboard": "node dist/habit-tracker-dashboard/server/server.mjs"
