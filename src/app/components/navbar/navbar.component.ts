@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 /**
  * @title Autosize sidenav
  */
@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-navbar',
   templateUrl: 'navbar.component.html',
   styleUrl: 'navbar.component.scss',
-  imports: [MatSidenavModule, MatButtonModule, RouterOutlet],
+  imports: [MatSidenavModule, MatButtonModule, RouterOutlet, RouterLink, RouterLinkActive],
 })
 export class NavbarComponent {
   showFiller = false;
