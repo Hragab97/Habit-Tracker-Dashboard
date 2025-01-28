@@ -7,18 +7,18 @@
       @if (showFiller) {
       <p>Lorem, ipsum dolor sit amet consectetur.</p>
       }
-      <button mat-raised-button>
+      <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  mat-raised-button>
         Dashboard
-      </button>
-      <button mat-raised-button>
+      </a>
+      <a [routerLink]="['/habits']" routerLinkActive="router-link-active"  mat-raised-button>
         Habits
-      </button>
-      <button mat-raised-button>
+      </a>
+      <a [routerLink]="['/reports']" routerLinkActive="router-link-active"  mat-raised-button>
         Reports
-      </button>
-      <button mat-raised-button>
+      </a>
+      <a [routerLink]="['/settings']" routerLinkActive="router-link-active"  mat-raised-button>
         Settings
-      </button>
+      </a>
     </div>
   </mat-drawer>
   <div class="example-sidenav-content">
